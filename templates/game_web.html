@@ -6,7 +6,8 @@
 </head>
 <body>
     <h1>Hotel List</h1>
-
+    <a href="{{ url_for('new_screen') }}">Go back home</a>
+    <a href="{{ url_for('new') }}">New screen</a>
     {% for hotel in hotels %}
         <div>
             <h3>{{ hotel.name }}</h3>
