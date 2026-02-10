@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+</head>
+<body>
+    <h1>This is hotel screen</h1>
+    {% for hotel in hotels %}
+            <div>
+                <h3>{{ hotel.name }}</h3>
+                <p>Price: ${{ hotel.price }} / night</p>
+                <button>Button</button>
+            </div>
+            <hr>
+    {% endfor %}
+    <div>
+        <a href="{{ url_for('home') }}">
+                <button>Go back to Home Screen</button>
+        </a>
+    </div>
+</body>
+</html>
