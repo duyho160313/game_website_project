@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Screen</title>
+    <title>Homework</title>
 </head>
 <body>
     <h1>You Made it to the Homework Screen!</h1>
@@ -14,10 +14,16 @@
       <li>Remove all student</li>
       <li>Exit</li>
     </ol>
+    <form action="/action_page.php">
+        <label for="gsearch">Enter your choice:</label>
+        <input type="search" id="gsearch" name="gsearch">
+        <input type="submit">
+    </form>
     <div>
         <a href="{{ url_for('home') }}">
                 <button>Go back to Home Screen</button>
         </a>
     </div>
+
 </body>
 </html>

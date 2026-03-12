@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<style>
+    body {
+  background-color: CornflowerBlue;
+}
+    h1 {
+  color: Crimson
+
+</style>
+
+
+
+
+
 <html>
 <head>
     <title>Hotel website</title>
@@ -11,6 +24,15 @@
             </a>
             <a href="{{ url_for('hotel_screen') }}">
                 <button>Go to Hotel</button>
+            </a>
+            <a href="{{ url_for('homework') }}">
+                <button>Go to Homework</button>
+            </a>
+            <a href="{{ url_for('sign_up') }}">
+                <button class="image-button" onclick="alert('Button clicked!')">
+                    <img src="{{ url_for('static', filename='images/signup.gif') }}" alt="Description of the button action" width="50" height="50">
+
+                </button>
             </a>
             <a href="{{ url_for('homework') }}">
                 <button>Go to Homework</button>
