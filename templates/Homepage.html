@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <style>
     body {
-  background-color: CornflowerBlue;
-}
-    h1 {
-  color: Crimson
+        background-image: url("{{ url_for('static', filename='images/background.png') }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        text-align: center;
 
+
+}
+
+
+
+
+    h1 {
+        color: White;
+        font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+}
 </style>
 
 
@@ -20,22 +31,25 @@
     <h1>This is Home page</h1>
         <div>
             <a href="{{ url_for('game_web') }}">
-                <button>Go to Game</button>
+                <button class="image-button" >
+                    <img src="https://tr.rbxcdn.com/180DAY-c267c408a8596df51a8c55036a1a7516/768/432/Image/Webp/noFilter" alt="Description of the button action" width="120" height="100">
+                </button>
             </a>
             <a href="{{ url_for('hotel_screen') }}">
-                <button>Go to Hotel</button>
-            </a>
-            <a href="{{ url_for('homework') }}">
-                <button>Go to Homework</button>
-            </a>
-            <a href="{{ url_for('sign_up') }}">
-                <button class="image-button" onclick="alert('Button clicked!')">
-                    <img src="{{ url_for('static', filename='images/signup.gif') }}" alt="Description of the button action" width="50" height="50">
-
+                <button class="image-button" >
+                    <img src="{{ url_for('static', filename='images/hotel.png') }}" alt="Description of the button action" width="120" height="100">
                 </button>
             </a>
             <a href="{{ url_for('homework') }}">
-                <button>Go to Homework</button>
+                <button class="image-button" >
+                    <img src="{{ url_for('static', filename='images/homework.png') }}" alt="Description of the button action" width="120" height="100">
+                </button>
+            </a>
+            <a href="{{ url_for('sign_up') }}">
+                <button class="image-button" >
+                    <img src="{{ url_for('static', filename='images/signup.gif') }}" alt="Description of the button action" width="120" height="100">
+
+                </button>
             </a>
         </div>
 
