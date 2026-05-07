@@ -1,23 +1,59 @@
 <!DOCTYPE html>
+<style>
+body {
+        background-image: url("{{ url_for('static', filename='images/Hotels/hotel.jpg') }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        text-align: center;
+
+
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+</style>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Hotel</title>
 </head>
 <body>
-    <h1>This is hotel screen</h1>
-    {% for hotel in hotels %}
-            <div>
-                <h3>{{ hotel.name }}</h3>
-                <p>Price: ${{ hotel.price }} / night</p>
-                <button>Button</button>
-            </div>
-            <hr>
-    {% endfor %}
+    <h1>Welcome to hotel screen</h1>
+<!--    {% for hotel in hotels %}-->
+<!--            <div>-->
+<!--                <h3>{{ hotel.name }}</h3>-->
+<!--                <p>Price: ${{ hotel.price }} / night</p>-->
+<!--                <button>Button</button>-->
+<!--            </div>-->
+<!--            <hr>-->
+<!--    {% endfor %}-->
+
+
+        <div>
+                    <img src="{{ url_for('static', filename='images/Hotels/room3.png') }}" alt="Description of the button action" width="120" height="100">
+                    <img src="{{ url_for('static', filename='images/Hotels/room2.png') }}" alt="Description of the button action" width="120" height="100">
+                    <img src="{{ url_for('static', filename='images/Hotels/room1.png') }}" alt="Description of the button action" width="120" height="100">
+
+        </div>
+        <div class = "center">
+                <p id="demo1"></p>
+                <button type="button" onclick="document.getElementById('demo1').innerHTML = 'Booked!'">Book room</button>
+                <p id="demo2"></p>
+                <button type="button" onclick="document.getElementById('demo2').innerHTML = 'Booked!'">Book room</button>
+                <p id="demo3"></p>
+                <button type="button" onclick="document.getElementById('demo3').innerHTML = 'Booked!'">Book room</button>
+    </div>
     <div>
         <a href="{{ url_for('home') }}">
                 <button>Go back to Home Screen</button>
         </a>
     </div>
+
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <style>
     body {
-        background-image: url("{{ url_for('static', filename='images/background.png') }}");
+        background-image: url("{{ url_for('static', filename='images/Backgrounds/background.png') }}");
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
@@ -19,7 +19,10 @@
 }
 </style>
 
-
+<script>
+    console.log("Hello World");
+    
+</script>
 
 
 
@@ -37,17 +40,17 @@
             </a>
             <a href="{{ url_for('hotel_screen') }}">
                 <button class="image-button" >
-                    <img src="{{ url_for('static', filename='images/hotel.png') }}" alt="Description of the button action" width="120" height="100">
+                    <img src="{{ url_for('static', filename='images/Hotels/booking_hotel.png') }}" alt="Description of the button action" width="120" height="100">
                 </button>
             </a>
             <a href="{{ url_for('homework') }}">
                 <button class="image-button" >
-                    <img src="{{ url_for('static', filename='images/homework.png') }}" alt="Description of the button action" width="120" height="100">
+                    <img src="{{ url_for('static', filename='images/Homework/homework.png') }}" alt="Description of the button action" width="120" height="100">
                 </button>
             </a>
             <a href="{{ url_for('sign_up') }}">
                 <button class="image-button" >
-                    <img src="{{ url_for('static', filename='images/signup.gif') }}" alt="Description of the button action" width="120" height="100">
+                    <img src="{{ url_for('static', filename='images//Backgrounds/signup.gif') }}" alt="Description of the button action" width="120" height="100">
 
                 </button>
             </a>
