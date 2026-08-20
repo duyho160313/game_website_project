@@ -30,7 +30,7 @@ def new_screen():
 def homework():
     """Renders the destination page."""
     return render_template('homework.html')
-@app.route('/sign up')
+@app.route('/sign_up')
 def sign_up():
     return render_template("signup_web.html")
 @app.route("/quiz")
