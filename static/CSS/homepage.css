@@ -1,0 +1,13 @@
+body {
+     background-image: url("../images/Backgrounds/background.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+     text-align: center;
+
+
+}
+h1 {
+     color: White;
+     font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+}

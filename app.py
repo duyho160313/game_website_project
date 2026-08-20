@@ -33,7 +33,9 @@ def homework():
 @app.route('/sign up')
 def sign_up():
     return render_template("signup_web.html")
-
+@app.route("/quiz")
+def math_quiz():
+    return render_template("Quiz_game.html")
 
 
 if __name__ == "__main__":

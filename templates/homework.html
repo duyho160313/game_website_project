@@ -1,31 +1,12 @@
 <!DOCTYPE html>
 
-<style>
-    body {
-        background-image: url("{{ url_for('static', filename='images/background_homework.png') }}");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-
-
-
-}
-
-
-
-
-    h1 {
-        color: Cyan;
-        font-family: Courier, monospace;
-        text-align: center;
-}   
-</style>
 
 
 
 <html>
 <head>
     <title>Homework</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/homework.css') }}">
 </head>
 <body>
     <h1>You Made it to the Homework Screen!</h1>

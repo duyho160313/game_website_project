@@ -1,23 +1,5 @@
 <!DOCTYPE html>
-<style>
-    body {
-        background-image: url("{{ url_for('static', filename='images/Backgrounds/background.png') }}");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        text-align: center;
 
-
-}
-
-
-
-
-    h1 {
-        color: White;
-        font-family: "Brush Script MT", "Lucida Handwriting", cursive;
-}
-</style>
 
 <script>
     console.log("Hello World");
@@ -29,13 +11,14 @@
 <html>
 <head>
     <title>Hotel website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/homepage.css') }}">
 </head>
 <body>
     <h1>This is Home page</h1>
         <div>
             <a href="{{ url_for('game_web') }}">
                 <button class="image-button" >
-                    <img src="https://tr.rbxcdn.com/180DAY-c267c408a8596df51a8c55036a1a7516/768/432/Image/Webp/noFilter" alt="Description of the button action" width="120" height="100">
+                    <img src="{{ url_for('static', filename='images/Backgrounds/home.png') }}" alt="Description of the button action" width="120" height="100">
                 </button>
             </a>
             <a href="{{ url_for('hotel_screen') }}">
@@ -54,6 +37,14 @@
 
                 </button>
             </a>
+            <a href="{{ url_for('math_quiz') }}">
+                <button class="image-button">
+
+                    <img src="{{url_for('static', filename='images//Backgrounds/math.jpg') }}" alt="Description of the button action" width="120" height="100">
+                </button>
+            </a>
+
+
         </div>
 
 

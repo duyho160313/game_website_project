@@ -1,0 +1,11 @@
+body{
+text-align:center;
+font-family:Arial;
+}
+.answers_btn{
+width:80px;
+height:50px;
+margin:10px;
+font-size:20px;
+cursor:pointer;
+}

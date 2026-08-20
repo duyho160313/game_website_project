@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Quiz.css') }}">
+
+</head>
+
+<body>
+
+<div id="start">
+<h1>Math Challenge</h1>
+<button onclick="startGame()">Start</button>
+</div>
+
+<div id="game" style="display:none;">
+
+<h2 id="timer">Time:30</h2>
+
+<h1 id="question"></h1>
+
+<button id="b1" class="answers_btn" onclick="check(this)"></button>
+<button id="b2" class="answers_btn" onclick="check(this)"></button>
+<button id="b3" class="answers_btn" onclick="check(this)"></button>
+<button id="b4" class="answers_btn" onclick="check(this)"></button>
+<button id="b5" class="answers_btn" onclick="check(this)"></button>
+
+<h2 id="message"></h2>
+
+</div>
+
+<h2 id="result"></h2>
+<script src="{{ url_for('static', filename='JS/Quiz.js') }}"></script>
+
+
+
+</body>
+</html>
+
