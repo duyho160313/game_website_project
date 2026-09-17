@@ -20,7 +20,7 @@ def hotel_screen():
         {"name": "Beach Resort", "price": 90},
         {"name": "City Hotel", "price": 70}
     ]
-    return render_template('hotel_screen.html', hotels=hotels)
+    return render_template('Hotel_screen.html', hotels=hotels)
 
 @app.route('/new')
 def new_screen():
