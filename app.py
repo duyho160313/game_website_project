@@ -13,7 +13,7 @@ def home():
 def game_web():
     return render_template("game_web.html")
 
-@app.route("/hotel")
+@app.route("/hotel_screen")
 def hotel_screen():
     hotels = [
         {"name": "Luxury Hotel", "price": 120},
