@@ -1,0 +1,3 @@
+homepage - thiếu head
+game_web - structure xấu
+Homepage - chưa link JavaScript

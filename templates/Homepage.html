@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 
-
-<script>
-    console.log("Hello World");
-    
-</script>
-
-
-
 <html>
 <head>
     <title>Hotel website</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='CSS/homepage.css') }}">
 </head>
 <body>
+<div class="animated-bg"></div>
+<div class="content">
+
+</div>
+
     <h1>This is Home page</h1>
         <div>
             <a href="{{ url_for('game_web') }}">
@@ -46,7 +43,7 @@
 
 
         </div>
-
+<script src="{{ url_for('static', filename='JS/homepage.js') }}"></script>
 
 </body>
 </html>
