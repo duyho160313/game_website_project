@@ -1,40 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hotel</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Hotel_screen.css') }}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Booking</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Hotel_screen.css') }}">
 </head>
+
 <body>
-    <h1>Welcome to hotel screen</h1>
-        <div class ="center">
-            <p>This is room 1  </p>
-            <p>This is room 2  </p>
-            <p>This is room 3  </p>
-        </div>
 
-        <div>
-                    <img src="{{ url_for('static', filename='images/Hotels/room3.png') }}" alt="Description of the button action" width="120" height="100">
-                    <img src="{{ url_for('static', filename='images/Hotels/room2.png') }}" alt="Description of the button action" width="120" height="100">
-                    <img src="{{ url_for('static', filename='images/Hotels/room1.png') }}" alt="Description of the button action" width="120" height="100">
-        </div>
-        <div class = "center">
-                <p id="demo1"></p>
-                <button class="button_blue button_hover1" type="button" onclick="document.getElementById('demo1').innerHTML = 'Booked!'">Book room</button>
+<div class="container">
 
-
-                <p id="demo2"></p>
-                <button class ="button_shadow button_hover2" type="button" onclick="document.getElementById('demo2').innerHTML = 'Booked!'">Book room</button>
-
-
-                <p id="demo3"></p>
-                <button class= "button button3" type="button" onclick="document.getElementById('demo3').innerHTML = 'Booked!'">Book room</button>
-            </div>
-    <div>
-        <a href="{{ url_for('home') }}">
-                <button>Go back to Home Screen</button>
-        </a>
+    <!-- Frame 1 -->
+    <div class="welcome-box">
+        <h1>Welcome to Paradise Hotel</h1>
     </div>
-</body>
 
+    <!-- Frame 2 -->
+    <div class="rooms-section">
+
+        <div class="rooms">
+
+            <div class="room-card">
+                <div class="room-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945');">
+                </div>
+                <div class="room-title">Standard Room</div>
+                <div class="room-price">$120 / Night</div>
+                <button class="book-btn" onclick="bookRoom('Standard Room')">
+                    Book Room
+                </button>
+            </div>
+
+            <div class="room-card">
+                <div class="room-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1582719508461-905c673771fd');">
+                </div>
+                <div class="room-title">Deluxe Room</div>
+                <div class="room-price">$220 / Night</div>
+                <button class="book-btn" onclick="bookRoom('Deluxe Room')">
+                    Book Room
+                </button>
+            </div>
+
+            <div class="room-card">
+                <div class="room-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461');">
+                </div>
+                <div class="room-title">Luxury Suite</div>
+                <div class="room-price">$350 / Night</div>
+                <button class="book-btn" onclick="bookRoom('Luxury Suite')">
+                    Book Room
+                </button>
+            </div>
+
+            <div class="room-card">
+                <div class="room-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c');">
+                </div>
+                <div class="room-title">Family Room</div>
+                <div class="room-price">$280 / Night</div>
+                <button class="book-btn" onclick="bookRoom('Family Room')">
+                    Book Room
+                </button>
+            </div>
+
+        </div>
+
+        <div class="home-container">
+            <a class="home-btn" href="{{ url_for('home') }}">Go Back To Home Screen</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='JS/Hotel.js') }}"></script>
+
+</body>
 </html>

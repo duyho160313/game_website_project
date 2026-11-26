@@ -1,34 +1,109 @@
 <!DOCTYPE html>
-
-
-
-
-<html>
+<html lang="en">
 <head>
-    <title>Homework</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/homework.css') }}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grade 8 English Revision</title>
+<style>
+:root{--bg:#fff;--ink:#1b2333;--card:#f1f4fa;--blue:#2748d8;--line:#cfd6e6;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#12161f;--ink:#e8ecf6;--card:#1c2330;--blue:#8fa8ff;--line:#2d3648;color-scheme:dark}}
+body{font:17px/1.6 system-ui,sans-serif;background:var(--bg);color:var(--ink);max-width:640px;margin:0 auto;padding:20px}
+h1{margin:0 0 4px}
+nav{display:flex;gap:8px;margin:16px 0}
+button{font:inherit;cursor:pointer;border:2px solid var(--blue);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 14px}
+button.on,.go{background:var(--blue);color:var(--bg)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+h3{margin:0 0 6px}
+.opt{display:block;width:100%;text-align:left;margin-top:8px}
+.right{border-color:#1b8a4b}.wrong{border-color:#c62f3b}
+#card{width:100%;min-height:150px;font-size:1.4rem}
+</style>
 </head>
 <body>
-    <h1>You Made it to the Homework Screen!</h1>
-    <h2>****Options****</h2>
-    <ol>
-      <li>Add student to end</li>
-      <li>Add priority student to front</li>
-      <li>Remove a student</li>
-      <li>Save data</li>
-      <li>Remove all student</li>
-      <li>Exit</li>
-    </ol>
-    <form action="/action_page.php">
-        <label for="gsearch">Enter your choice:</label>
-        <input type="search" id="gsearch" name="gsearch">
-        <input type="submit">
-    </form>
-    <div>
-        <a href="{{ url_for('home') }}">
-                <button>Go back to Home Screen</button>
-        </a>
-    </div>
+<h1>Grade 8 English Revision</h1>
+<p>Learn it, flip the cards, then take the quiz.</p>
+<nav>
+<button id="b-learn" class="on">Learn</button>
+<button id="b-cards">Flashcards</button>
+<button id="b-quiz">Quiz</button>
+</nav>
 
+<div id="learn">
+<div class="box"><h3>Parts of speech</h3>Noun (thing), verb (action), adjective (describes a noun), adverb (describes a verb), pronoun (replaces a noun), preposition (position), conjunction (joins).</div>
+<div class="box"><h3>Tenses</h3>Past: I walked. Present: I walk. Future: I will walk. Present perfect: I have walked. Past perfect: I had walked.</div>
+<div class="box"><h3>Subject–verb agreement</h3>Singular subject, singular verb: <i>The dog barks.</i> Plural subject, plural verb: <i>The dogs bark.</i></div>
+<div class="box"><h3>Its or it’s?</h3>“It’s” means “it is”. “Its” shows ownership: <i>The cat licked its paw.</i></div>
+<div class="box"><h3>Literary devices</h3>
+<b>Simile:</b> compares with “like” or “as”. <b>Metaphor:</b> says one thing is another. <b>Personification:</b> human qualities for objects. <b>Alliteration:</b> repeated first sounds. <b>Hyperbole:</b> exaggeration.</div>
+<div class="box"><h3>Essay paragraph (PEEL)</h3>Point, Evidence, Explain, Link back to the question.</div>
+</div>
+
+<div id="cards" hidden>
+<button id="card"></button>
+<p><button id="next" class="go">Next card</button></p>
+</div>
+
+<div id="quiz" hidden></div>
+
+<script>
+var $=function(id){return document.getElementById(id)};
+var pages=["learn","cards","quiz"];
+function show(name){
+  pages.forEach(function(p){$(p).hidden=p!==name;$("b-"+p).className=p===name?"on":""});
+}
+pages.forEach(function(p){$("b-"+p).onclick=function(){show(p)}});
+
+// Flashcards: [front, back]
+var CARDS=[
+["benevolent","kind and generous"],["reluctant","unwilling"],["eloquent","good at speaking"],
+["ambiguous","having more than one meaning"],["meticulous","very careful"],["resilient","quick to recover"],
+["obsolete","no longer used"],["vivid","clear and lifelike"],["inevitable","certain to happen"],["monotonous","dull and unchanging"]
+];
+var ci=0,showFront=true;
+function drawCard(){$("card").textContent=CARDS[ci][showFront?0:1]}
+$("card").onclick=function(){showFront=!showFront;drawCard()};
+$("next").onclick=function(){ci=(ci+1)%CARDS.length;showFront=true;drawCard()};
+drawCard();
+
+// Quiz: [question, options, correct index]
+var QS=[
+["Which word is an adverb? “She sang beautifully.”",["She","sang","beautifully"],2],
+["Choose the correct sentence.",["The dogs barks.","The dogs bark.","The dog bark."],1],
+["“The wind whispered” is an example of…",["Simile","Personification","Hyperbole"],1],
+["“The dog wagged ___ tail.”",["it’s","its"],1],
+["“I’ve told you a million times!” is…",["Metaphor","Alliteration","Hyperbole"],2],
+["“Her smile was like sunshine” is a…",["Simile","Metaphor","Irony"],0],
+["Which is past perfect?",["I had finished.","I have finished.","I finish."],0],
+["What does PEEL stand for?",["Point, Evidence, Explain, Link","Plan, Edit, Check, Learn"],0]
+];
+var qi=0,score=0;
+function drawQ(){
+  var box=$("quiz");
+  if(qi>=QS.length){
+    box.innerHTML="<div class='box'><h3>Score: "+score+" / "+QS.length+"</h3><button class='go' id='again'>Try again</button></div>";
+    $("again").onclick=function(){qi=0;score=0;drawQ()};
+    return;
+  }
+  var q=QS[qi];
+  box.innerHTML="<div class='box'><h3></h3><div id='opts'></div></div>";
+  box.querySelector("h3").textContent=(qi+1)+". "+q[0];
+  q[1].forEach(function(text,i){
+    var b=document.createElement("button");
+    b.className="opt";b.textContent=text;
+    b.onclick=function(){
+      if(i===q[2]){score++;b.className="opt right"}else{b.className="opt wrong"}
+      var all=$("opts").children;
+      for(var k=0;k<all.length;k++){all[k].disabled=true}
+      all[q[2]].className="opt right";
+      var n=document.createElement("button");
+      n.className="go opt";n.textContent="Next";
+      n.onclick=function(){qi++;drawQ()};
+      $("opts").appendChild(n);
+    };
+    $("opts").appendChild(b);
+  });
+}
+drawQ();
+</script>
 </body>
 </html>
